@@ -17,7 +17,8 @@ click==8.3.3
 coloredlogs==15.0.1
 cryptography==46.0.7
 dataclasses-json==0.6.7
-Django==6.0.4
+# Django==6.0.4
+Django==5.1.4
 django-filter==25.2
 djangorestframework==3.17.1
 dnspython==2.8.0
