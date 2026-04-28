@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /code
 
 COPY requirements.txt .
-RUN pip install --no-cahe-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # 프로젝트 넣는다
 COPY . .
