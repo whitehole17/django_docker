@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post List</title>
+</head>
+<body>
+    <h1>Post 목록 조회</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>제목</th>
+                <th>내용</th>
+                <th>작성일</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for post in posts %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.content }}</td>
+                <td>{{ post.created_at }}</td>
+                <td>
+                    <!-- <form action="{% url 'delete_post' post.id %}" method="post"> -->
+                    <form action="{% url 'delete_post' post.pk %}" method="post">
+                        {% csrf_token %}
+                        <button>삭제</button>
+                    </form>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">게시물이 없습니다.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+
+        <form action="{% url 'create_post' %}">
+            {% csrf_token %}
+            <button>등록</button>
+        </form>
+    </table>
+</body>
+</html>
