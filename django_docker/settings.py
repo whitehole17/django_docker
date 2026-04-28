@@ -136,7 +136,10 @@ import os
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
-CSRF_TRUSTED_ORIGINS = ['http://3.36.122.248']
+CSRF_TRUSTED_ORIGINS = [
+    'http://3.36.122.248:8080',
+    'http://localhost:8080',
+]
 
 STORAGES = {
     'default': {
